@@ -2,10 +2,12 @@ import React from 'react';
 import './welcome.css';
 import '../../css/buttons.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 
 export default class Welcome extends React.Component {
   test() {
-    console.log('hello');
+    axios.get('http://localhost:5000/createDb');
   }
   render() {
     return (
@@ -17,11 +19,14 @@ export default class Welcome extends React.Component {
         </svg>
       </div>
       <h1 className="text-center welcome">Welcome!</h1>
-      <Link to='/profile-settings'>
+      <button className="button-base ripple mt-3" onClick={this.test}>
+        Being Using!
+      </button>
+      {/* <Link to='/profile-settings'>
         <button className="button-base ripple mt-3">
           Being Using!
         </button>
-      </Link>
+      </Link> */}
     </div>
     )
   }
