@@ -3,15 +3,17 @@ import { Route, Switch } from 'react-router-dom';
 
 import Welcome from './components/newUser/welcome';
 import ProfileSettings from './components/newUser/profileSettings';
-import Home from './components/auth/js/home';
+import Home from './components/auth/home';
+
+import routes from './routes';
 
 function App() {
   return (
-    <main style={{overflow: 'hidden'}}>
+    <main>
       <Switch>
-        <Route exact path='/' component={Welcome} />
-        <Route path='/profile-settings' component={ProfileSettings}/>
-        <Route path='/auth/home' component={Home}/>
+        <Route exact path={routes.newUser.welcome} component={Welcome} />
+        <Route path={routes.newUser.profileSettings} component={ProfileSettings}/>
+        <Route path={routes.auth.home} component={Home}/>
       </Switch>
     </main>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../styles/background-colors.css'
+import '../../../styles/background-colors.css'
 
 class Dashboard extends React.Component {
   render() {

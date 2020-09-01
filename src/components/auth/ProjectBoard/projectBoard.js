@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../styles/background-colors.css'
+import '../../../styles/background-colors.css'
 
 class ProjectBoard extends React.Component {
   render() {

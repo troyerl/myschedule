@@ -2,10 +2,10 @@ import React from 'react';
 
 import { connect }  from 'react-redux';
 
-import actionType from '../../../../store/actionTypes';
+import actionType from '../../../store/actionTypes';
 
-import '../../../../styles/background-colors.css';
-import '../../../../styles/buttons.css';
+import '../../../styles/background-colors.css';
+import '../../../styles/buttons.css';
 
 import { Card, Form, Button } from 'react-bootstrap';
 
