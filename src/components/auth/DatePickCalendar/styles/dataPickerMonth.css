@@ -1,0 +1,17 @@
+.title {
+  background: #5680E9;
+  padding: 2px 5px;
+  color: white;
+  text-align: center;
+}
+
+.month {
+  text-align: center;
+  padding: 5px 5px;
+}
+
+.month:hover {
+  border: 2px solid #EFEFEF;
+  color: #5680E9;
+  cursor: pointer; 
+}

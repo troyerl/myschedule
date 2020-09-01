@@ -5,7 +5,7 @@ import DatePickerCalendar from '../DatePickCalendar/index';
 
 const SmallCalendar = props => {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '25rem' }}>
       <DatePickerCalendar/>
     </Card>
   )
