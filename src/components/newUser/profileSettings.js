@@ -1,6 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
 
+import { Form, Button } from 'react-bootstrap';
+
 export default class ProfileSettings extends React.Component {
   constructor(props) {
     super(props);
@@ -41,27 +43,27 @@ export default class ProfileSettings extends React.Component {
   }
   render() {
     return (
-      <div style={{height: '100vh', width: '100%', 'backgroundColor': '#5680E9'}} className="d-flex flex-column justify-content-center align-items-center">>
+      <div style={{height: '100vh', width: '100%', 'backgroundColor': '#5680E9'}} className="d-flex flex-column justify-content-center align-items-center">
         <h1 className="text-center welcome">Profile Info</h1>
-        <form className="d-flex justify-content-center flex-column" onSubmit={this.onSubmit}>
-          <div className="form-group mt-3 d-flex">
+        <Form className="d-flex justify-content-center flex-column" onSubmit={this.onSubmit}>
+          <Form.Group className="mt-3 d-flex">
             <div>
               <label>First Name</label>
-              <input type="text" value={this.state.firstname} onChange={this.handleChange} name="firstname" className="form-control pa-3" required/>
+              <Form.Control type="text" value={this.state.firstname} onChange={this.handleChange} name="firstname" className="form-control pa-3" required/>
             </div>
             <div className="ml-3">
               <label>Last Name</label>
-              <input type="text" value={this.state.lastname} onChange={this.handleChange} name="lastname" className="form-control" required/>
+              <Form.Control type="text" value={this.state.lastname} onChange={this.handleChange} name="lastname" className="form-control" required/>
             </div>
-          </div>
-          <div className="form-group">
+          </Form.Group>
+          <Form.Group>
             <label>Email</label>
-            <input type="email" value={this.state.email} onChange={this.handleChange} name="email" className="form-control" required/>
-          </div>
+            <Form.Control type="email" value={this.state.email} onChange={this.handleChange} name="email" className="form-control" required/>
+          </Form.Group>
           <div className="text-center">
-            <button type="submit" className="button-base ripple mt-3">Submit</button>
+            <Button type="submit" className="button-base wide-button main-color ripple mt-3">Create Account!</Button>
           </div>
-        </form>
+        </Form>
       </div>
     );
   }

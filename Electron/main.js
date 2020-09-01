@@ -8,6 +8,7 @@ function createWindow() {
         height:600,
         show: false,
         resizable: true,
+        worldSafeExecuteJavaScript: true
     });
     const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`;
  
