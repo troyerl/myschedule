@@ -53,10 +53,13 @@ class Settings extends React.Component {
   onCancel() {
     if (this.state.defaultUser !== this.state.user) {
       this.setState({
-        user: this.state.defaultUser,
-        disabled: true
+        user: JSON.parse(JSON.stringify(this.state.defaultUser)),
       })
     }
+
+    this.setState({
+      disabled: true
+    })
   };
 
   render() {
