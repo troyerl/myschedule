@@ -1,47 +1,37 @@
-
 const sqlite3 = require('sqlite3').verbose();
 const file = "./database.db";
 
-class MySql {
-  constructor() {
-    let test = `CREATE TABLE test ( \
-      ID INT PRIMARY KEY     NOT NULL,
-      NAME           TEXT    NOT NULL,
-   );`
-    this.db = new sqlite3.Database(file, (err) => {
+class sqlLite {
+  sqlQuery(query, callback) {
+    const db = new sqlite3.Database(file, (err) => {
       if (err) {console.log(err)}
-
-      console.log('connected');
     });
-    this.db.all(test, function(err, rows) {
-      if (err) { console.log(err) }
-      console.log('created table');
-    });	
-
-    this.db.all(`INSERT INTO test VALUES (1, 'Logan');`, function(err, rows) {
-      if (err) { console.log(err) }
-      console.log('added to table');
-    });	
-
-    this.db.close();
+  
+    db.serialize(function() {
+      let data = []; //for storing the rows.
+      db.each(query , function(err, row) {
+        if (err) {console.log(err)};
+          data.push(row); //pushing rows into array
+      }, function(){ // calling function when all rows have been pulled
+          db.close(); //closing connection
+          callback(data); 
+      });
+    });
   };
 
-  
-
-  test() {
-    this.db = new sqlite3.Database(file, (err) => {
+  execQuery(query, callback) {
+    const db = new sqlite3.Database(file, (err) => {
       if (err) {console.log(err)}
-
-      console.log('connected');
     });
-
-    this.db.all(`SELECT * FROM test;`, function(err, rows) {
-      if (err) { console.log(err) }
-      rows.forEach(function (row) {
-        console.log(row.name);
-    })
-    });	
-  }
+  
+    db.serialize(function() {
+      db.exec(query , function(err) {
+        if (err) {console.log(err)};
+          db.close();
+          callback(200);
+      });
+    });
+  };
 }
 
-module.exports = MySql;
+module.exports = sqlLite;

@@ -25,8 +25,16 @@
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.3);  
 }
 
-.button-base{
-  font-family: 'Arimo', sans-serif;
+.main-color {
+  background: #84CEEB !important;
+}
+
+.wide-button {
+  width: 200px;
+}
+
+.button-base {
+  font-family: 'Arimo', sans-serif !important;
   -webkit-appearance: none;
   text-transform: none;
   -moz-box-sizing: border-box;
@@ -35,20 +43,17 @@
   vertical-align: middle;
   border-radius: 3px;
   line-height: 36px;
-  font-size: 14px;
+  font-size: 14px !important;
   text-align: center;
   text-decoration:none;
   text-transform: uppercase;
   padding:0 1em;
   margin: 0 0.25em;
   box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
-
-  width: 200px;
   height: 40px;
-  background: #84CEEB;
-  border: none;
+  border: none !important;
   color: white;
-  font-weight: bold;
+  font-weight: bold !important;
   cursor: pointer;
 }
 

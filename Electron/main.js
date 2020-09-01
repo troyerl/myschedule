@@ -2,14 +2,12 @@ const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');   
 const path = require('path');
 
-let mainWindow;
- 
 function createWindow() {
-    mainWindow = new BrowserWindow({
+    let mainWindow = new BrowserWindow({
         width:800,
         height:600,
         show: false,
-        frame: false 
+        resizable: true,
     });
     const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`;
  
@@ -21,4 +19,9 @@ function createWindow() {
         mainWindow = null;
     });
 }
+
+module.exports = function close() {
+    console.log('test');
+};
+
 app.on('ready', createWindow);
