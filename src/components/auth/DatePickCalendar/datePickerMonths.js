@@ -6,7 +6,7 @@ const DatePickerMonths = props => {
     let months = [];
     months = props.allMonths.map(month => {
       return(
-        <td className="month">
+        <td onClick={props.setMonth} key={month} className="month">
           <span>{month}</span>
         </td>
       );
@@ -32,7 +32,7 @@ const DatePickerMonths = props => {
     rows.push(cells); // add last row
 
     let monthlist = rows.map((d, i) => {
-      return <tr>{d}</tr>;
+      return <tr key={d+i}>{d}</tr>;
     });
 
     return monthlist;
